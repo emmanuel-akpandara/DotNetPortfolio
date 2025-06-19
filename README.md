@@ -1,6 +1,6 @@
 # .NET Portfolio 
 
-Welcome to my .NET Portfolio — a curated collection of mini projects built using the .NET ecosystem. Each project reflects my hands-on experience with C#, ASP.NET, MVC, and other related technologies. This repository is a living archive of my learning journey and a demonstration of my ability to build real-world applications.
+Welcome to my .NET Portfolio, a collection of mini projects built using the .NET ecosystem. Each project reflects my hands-on experience with C#, ASP.NET, MVC, and other related technologies. This repository is a living archive of my learning journey.
 
 ##  Technologies Used
 
