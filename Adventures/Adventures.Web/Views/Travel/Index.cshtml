@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using Adventures.Domain.Models
+@model IEnumerable<Country>
+@{
+}
+<h1>Travel Information</h1>
+
+@using Adventures.Web.Helpers
+@foreach (var country in Model ){
+    <h2>@country.Name</h2>
+    @foreach(var trip in country.Trips)
+    {
+        <p><a asp-controller="Travel" asp-action="Create" asp-route-id="@trip.TripId">@trip.Title</a></p>
+        <p>@trip.Description <span><b> -- @TravelHelper.GetTravelType(@trip.Description)</b></span></p>
+        @foreach(var booking in trip.Bookings)
+        {
+            <span>@booking.Traveller.Firstname @booking.Traveller.Lastname, </span>
+        }
+    }
+}

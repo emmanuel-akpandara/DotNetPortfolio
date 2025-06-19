@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Main Menu";
+}
+
+<h2>Lesson 1: Introduction</h2>
+<a asp-controller="HelloWorld" asp-action="Index">Hello World</a><br/>
+<a asp-controller="HelloWorld" asp-action="Welcome" asp-route-name="Rick" asp-route-numTimes="5">Welcome</a><br />
+<h2>Lesson 3: Reading Data</h2>
+<a asp-controller="Movies" asp-action="List">All movies</a>
+<br />
+<h2>Lesson 4: Writing Data</h2>
+<a asp-controller="Ratings" asp-action="List">All Ratings</a>
+<br />
+<a asp-controller="Movies" asp-action="Create">Create Movie</a>
+<h2>Lesson 5: ViewModels</h2>
+<a asp-controller="Movies" asp-action="List">Filter Movies</a>
+<br />

@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MotoGP.Models.Ticket
+@{
+    ViewData["BannerNr"] = 3;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+       <h1 style="color:red">Edit Ticket</h1>
+        <form asp-controller="Shop" asp-action="EditTicket">
+            <input type="hidden" asp-for="TicketID" />
+            <label asp-for="Paid">
+                @(Html.DisplayNameFor(Model=>Model.Paid))
+            </label>
+            <input type="checkbox" asp-for="Paid" />
+            <br />
+            <input type="submit" value="Register Ticket" />
+       </form>
+    </div>
+</body>
+</html>

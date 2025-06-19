@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MotoGP.Models.ViewModels.ListTicketsViewModel
+@{
+    ViewData["BannerNr"] = 3;
+    var raceIds = Model.Tickets.Select(t => t.RaceID).Distinct().ToList();
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-controller="Shop" asp-action="ListTickets"
+      method="get">
+    <select asp-for="raceID" asp-items="Model.Race">
+        <option value="0">-- Select a race --</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+<br />
+
+@*If the raceIds from the ticket deosnt contain the raceID from the viewmodel and the raceID from the view model is greater than 0, say no tickets ordered*@
+@if (!raceIds.Contains(Model.raceID) && Model.raceID>0)
+{
+    <p>No Tickets ordered for this race yet.</p>
+}
+else
+{
+
+    <table>
+        <tr>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].OrderDate))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Name))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Email))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Address))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Country))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Race))</th>
+            <th>@(Html.DisplayNameFor(model => model.Tickets[0].Number))</th>
+            <th></th>
+        </tr>
+
+
+
+        @foreach (var ticket in Model.Tickets)
+        {
+            <tr>
+                <td>@(Html.DisplayFor(modelItem => ticket.OrderDate))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Name))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Email))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Address))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Country.Name))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Race.Name))</td>
+                <td>@(Html.DisplayFor(modelItem => ticket.Number))</td>
+                @if (ticket.Paid == true)
+                {
+                    <td>Paid</td>
+                }
+                else
+                {
+                    <td><a asp-controller="Shop" asp-action="EditTicket" asp-route-id="@ticket.TicketID">Pay</a></td>
+                }
+            </tr>
+        }
+    </table>
+}
+

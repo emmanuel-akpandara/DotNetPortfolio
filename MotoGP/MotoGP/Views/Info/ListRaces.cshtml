@@ -1,0 +1,53 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<MotoGP.Models.Race>
+@{
+    ViewData["BannerNr"] = 0;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+        <h1 style="color:red">Races</h1>
+
+        @{
+            DateTime[] months = new DateTime[12];
+            for (int u = 0; u < 12; u++)
+            {
+                months[u] = new DateTime(2022, u + 1, 1);
+            }
+
+            foreach (DateTime month in months)
+            {
+                bool monthHasRaces = false;
+                for (int i = 0; i < Model.Count(); i++)
+                {
+                    var race = Model.ElementAt(i);
+                    if (month.ToString("MMMM") == race.Date.ToString("MMMM"))
+                    {
+                        if (!monthHasRaces)
+                        {
+                            monthHasRaces = true;
+                            <h2>@month.ToString("MMMM")</h2>
+                        }
+                        <p>@(Html.DisplayFor(modelItem=>race.Date)) <a asp-controller="Info" asp-action="ShowRace" asp-route-id="@race.RaceID">@race.Name</a></p>
+                    }
+                }
+            }
+        }
+
+        <a asp-controller="Home" asp-action="Menu">Back</a>
+        <a asp-controller="Info" asp-action="BuildMap">Races on Map</a>
+        <a asp-controller="Info" asp-action="SelectRace">One by one</a>
+
+    </div>
+
+</body>
+</html>

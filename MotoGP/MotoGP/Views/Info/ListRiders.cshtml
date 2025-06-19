@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<MotoGP.Models.Rider>
+@{
+    ViewData["BannerNr"] = 2;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var pic = ".jpg";
+    var flag = ".png";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="flexed">
+        @foreach (var rider in Model)
+        {
+            <div class="bg">
+                <div>
+                    <img style="margin:20px" src="~/images/riders/@rider.Number@pic" />
+                </div
+                <div class="flexed-flag">
+                    <img src="~/images/flags/@rider.CountryID@flag" />
+                    <h2>@rider.Number</h2>
+                    <p>@rider.FirstName @rider.LastName</p>
+                </div
+            </div>
+        }
+    </div>
+
+</body>
+<style>
+    .bg {
+        background-color: gainsboro;
+        flex: 0 0 300px; /* This line sets the initial width of the div to 400px */
+        margin:50px;
+        display: flex;
+        flex-direction:column;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        align-items:center;
+    }
+
+    .flexed {
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap;
+    }
+
+    .flexed-flag{
+        display: flex;
+        flex-direction: row;
+    }
+
+</style>
+</html>

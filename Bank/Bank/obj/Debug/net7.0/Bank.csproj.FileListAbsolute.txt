@@ -1,0 +1,12 @@
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\bin\Debug\net7.0\Bank.deps.json
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\bin\Debug\net7.0\Bank.dll
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\bin\Debug\net7.0\Bank.pdb
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.csproj.AssemblyReference.cache
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.AssemblyInfoInputs.cache
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.AssemblyInfo.cs
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.csproj.CoreCompileInputs.cache
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.dll
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\refint\Bank.dll
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\Bank.pdb
+C:\Users\teste\Documents\3rd Year\dotnet\one\www\Bank\Bank\obj\Debug\net7.0\ref\Bank.dll

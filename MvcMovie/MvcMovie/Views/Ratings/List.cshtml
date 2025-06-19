@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<MvcMovie.Models.Rating>
+@{
+    ViewData["Title"] = "All Ratings";
+}
+
+<p><a asp-action="Create">Create New</a></p>
+<table>
+    <tbody>
+        <tr>
+            <th>@(Html.DisplayNameFor(model=>model.Code))</th>
+            <th>@(Html.DisplayNameFor(model => model.Name))</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var rating in Model)
+        {
+            <tr>
+                <td> @(Html.DisplayFor(modelItem => rating.Code))</td>
+                <td>@(Html.DisplayFor(modelItem => rating.Name))</td> 
+                <td><a asp-controller="Ratings" asp-action="Edit" asp-route-id="@rating.RatingID">Edit</a> | <a asp-controller="Ratings" asp-action="Delete" asp-route-id="@rating.RatingID">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

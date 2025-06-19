@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MotoGP.Models.ViewModels.ListRacesViewModel
+@{
+    ViewData["BannerNr"] = 0;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "race";
+    var ext = ""+ ".jpg";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <form asp-controller="Info" asp-action="SelectRace" method="get">
+        <select asp-for="raceID" asp-items="Model.SelectRaceList">
+            <option value="0">== Select a race ==</option>
+        </select>
+        <input type="submit" value="Filter" />
+    </form>
+    <br />
+    
+    
+    @if (Model.raceID==0)
+    {
+    <div></div>
+    }
+    else
+    {
+        @foreach (var race in Model.Races)
+        {
+            <div class="flexed">
+                <img style="padding:20px" src="~/images/races/@race.RaceID@ext" />
+                <p style="padding:20px">
+                    @race.Name - @race.Country <br />
+                    Length: @race.Length <br />
+                    Date: @race.Date <br />
+                    @race.Description
+                </p>
+            </div>
+        }
+     }
+
+    <a asp-action="Info" asp-action="ListRaces">Back</a>
+</body>
+<style>
+    .flexed{
+        display: flex;
+    }
+</style>
+</html>

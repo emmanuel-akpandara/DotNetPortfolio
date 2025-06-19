@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["BannerNr"] = 3;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@model MotoGP.Models.Ticket
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div>
+       <h1 style="color:red">Confirmation</h1>
+        <p>Thank you @(Html.DisplayFor(model=>model.Name)) for ordering tickets for the race in @(Html.DisplayFor(model=>model.Race.Name)). Your booking is registered on @(Html.DisplayFor(model=>model.OrderDate)). We will send the @(Html.DisplayFor(model=>model.Number)) tickets as soon as possible.</p>
+        <a asp-controller="Home" asp-action="Menu">Back</a>
+    </div>
+</body>
+</html>
